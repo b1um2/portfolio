@@ -26,19 +26,19 @@ const projects = [
 ];
 
 function generate_table() {
-    const width = window.innerWidth-40;
-    const table_width = Math.floor(width / (image_size+image_margin));
+    const width = window.innerWidth-30;
+    let table_width = Math.floor(width / (image_size+image_margin));
+    table_width = table_width <= 0 ? 1 : table_width;
+
     let image_size_mult = (image_size+image_margin)
     image_size_mult = width / (image_size_mult*table_width)
 
-    if (table_width <= 0) return "";
-
     let html_table_projects = `<table class="project_table" style="table-layout: fixed;">`;
     
-    for (let i = 0; i < projects.length; i++) {
+    for (let i = 0; i < projects.length; 1) {
         html_table_projects += "<tr>";
 
-        for (let j = 0; j < table_width && i < projects.length; j++ | i++) {
+        for (let j = 0; j < table_width && i < projects.length; j++) {
             let dict = projects[i];
             html_table_projects += `<th class="project_grid">`;
             html_table_projects += `<div class="project_div" style="width: ${(image_size+image_margin)*image_size_mult}px; overflow: hidden;">`;
@@ -47,6 +47,7 @@ function generate_table() {
             html_table_projects += `<p class="project_description">${dict.desc}</p>`;
             html_table_projects += `</div>`;
             html_table_projects += `</th>`;
+            i++;
         }
 
         html_table_projects += "</tr>";
