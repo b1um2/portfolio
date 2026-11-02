@@ -26,7 +26,7 @@ const projects = [
 ];
 
 function generate_table() {
-    const width = window.innerWidth-30;
+    const width = document.documentElement.clientWidth - 30;
     let table_width = Math.floor(width / (image_size+image_margin));
     table_width = table_width <= 0 ? 1 : table_width;
 
@@ -35,7 +35,7 @@ function generate_table() {
 
     let html_table_projects = `<table class="project_table" style="table-layout: fixed;">`;
     
-    for (let i = 0; i < projects.length; 1) {
+    for (let i = 0; i < projects.length;) {
         html_table_projects += "<tr>";
 
         for (let j = 0; j < table_width && i < projects.length; j++) {
