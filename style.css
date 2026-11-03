@@ -36,11 +36,9 @@ p, h3, h4 {
 
 #project_viewport {
     width: 100%;
-    max-width: 900px;
-    margin: 10px auto;
 }
 
-#contact_links, project_viewport {
+#contact_links {
     width: 50%; 
     margin: 0 auto;
     text-align: center;
